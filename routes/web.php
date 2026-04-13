@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgeController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,7 @@ Route::get('create-barang', [BarangController::class,'create'])->name('barang.cr
 
 // memanggil controller resource : 
 Route::resource('item', ItemController::class);
+
+// Halaman index dari umur
+Route::get('form-umur', [AgeController::class, 'form'])->name('umur.form');
 
