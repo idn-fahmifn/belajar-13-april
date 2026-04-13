@@ -33,4 +33,10 @@ Route::resource('item', ItemController::class);
 
 // Halaman index dari umur
 Route::get('form-umur', [AgeController::class, 'form'])->name('umur.form');
+Route::get('success', [AgeController::class, 'success'])->name('umur.success');
+
+// route untuk mengirim dengan method post
+Route::post('send-umur', [AgeController::class, 'send'])->name('umur.send');
+
+
 
