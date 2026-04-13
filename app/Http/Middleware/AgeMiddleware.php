@@ -15,6 +15,19 @@ class AgeMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+
+
+        // JIka ingin disetujui, harus mematuhi aturan berikut : 
+
+        $umur = $request->session()->get('umur'); //20
+
+        if ($umur >= 18) {
+            // izinkan masuk.
+            return $next($request);
+        }
+
+        // kalo ga diizinin? 
+        return back()
+        ->with('fail', 'Umur kamu belum sesuai');
     }
 }

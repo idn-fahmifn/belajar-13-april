@@ -16,8 +16,20 @@
                     <p class="text-muted">Masukan data anda dibawah!</p>
                 </div>
 
+                {{-- harus looping jika ada error --}}
+                @if ($errors->any())
+                    {{-- tampilkan errornya --}}
+                    @foreach ($errors->all() as $error )
+                        <p>{{ $error }}</p>
+                    @endforeach
+                @endif
+
+                @if (session('fail'))
+                    <p>{{ session('fail') }}</p>
+                @endif
+
                  {{-- FOrm --}}
-                 <form action="#" method="post">
+                 <form action="{{ route('umur.send') }}" method="post">
                     <div class="form-group my-3">
                         <label for="">Nama Lengkap</label>
                         <input type="text" name="nama" class="form-control">
