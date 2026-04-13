@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,10 +14,19 @@ Route::get('/hallo', function (){
 });
 
 // Routing dengan parameter
+// setiap routing dengan method get, post, put, patch dan delete wajib diberikan name.
+
 Route::get('/mobil/{param}', function($mobil){
     return "Ini adalah halaman detail mobil. Mobil yang kamu pilih adalah : " . $mobil;
-});
+})->name('mobil');
 
 Route::get('/motor/{nama?}', function($motor = 'honda'){
     return view('kendaraan.motor', compact('motor'));
-});
+})->name('motor');
+
+Route::get('index-barang', [BarangController::class, 'halamanPertama'])->name('barang.index');
+Route::get('create-barang', [BarangController::class,'create'])->name('barang.create');
+
+// memanggil controller resource : 
+Route::resource('item', ItemController::class);
+
