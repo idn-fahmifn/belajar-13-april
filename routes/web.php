@@ -17,5 +17,5 @@ Route::get('/mobil/{param}', function($mobil){
 });
 
 Route::get('/motor/{nama?}', function($motor = 'honda'){
-    return view('motor', compact('motor'));
+    return view('kendaraan.motor', compact('motor'));
 });
