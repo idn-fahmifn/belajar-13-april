@@ -17,12 +17,15 @@ class ItemFactory extends Factory
      */
     public function definition(): array
     {
+        $merk = ['Macbook', 'Asus', 'Lenovo', 'Dell'];
+
         return [
-            'name' => fake()->word(),
-            'brand' => fake()->word, 
+            'name' => fake()->randomElement(['Laptop Ngoding', 'Laptop Kantor', 'Laptop Gaming']),
+            'brand' => fake()->randomElement($merk), 
             'stock' => random_int(1, 100),
             'tersedia' => fake()->boolean(),
-            'desc' => fake()->realText(),
+            'desc' => 'laptop dengan ' . fake()->randomElement(['Harga Murah', 'Harga Terjangkau', 'Spesifikasi Tinggi'])
+             . 'Tahun Rilis' . fake()->year(),
         ];
     }
 }
