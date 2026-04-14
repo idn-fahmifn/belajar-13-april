@@ -13,12 +13,17 @@ class ItemSeeder extends Seeder
      */
     public function run(): void
     {
-        Item::create([
-            'name' => 'Laptop',
-            'brand' => 'Macbook', 
-            'stock' => 10,
-            'tersedia' => true,
-            'desc' => 'Harga murah tahun 2023',
-        ]);
+        // Item::create([
+        //     'name' => 'Laptop',
+        //     'brand' => 'Macbook', 
+        //     'stock' => 10,
+        //     'tersedia' => true,
+        //     'desc' => 'Harga murah tahun 2023',
+        // ]);
+
+        Item::factory(10)->create();
+
+        
+
     }
 }
